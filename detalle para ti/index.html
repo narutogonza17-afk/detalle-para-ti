@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Un detalle para ti 🌻</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family: Georgia, "Times New Roman", serif;
+  background:#fffaf0;color:#5a4325;overflow-x:hidden;
+}
+.page{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;padding:30px}
+.hidden{display:none!important}
+.screen{
+  min-height:100vh;width:100%;display:flex;align-items:center;justify-content:center;
+  text-align:center;position:relative;overflow:hidden;
+}
+.card{
+  width:min(680px,92vw);padding:48px 30px;border-radius:28px;
+  background:rgba(255,255,255,.78);backdrop-filter:blur(10px);
+  box-shadow:0 20px 70px rgba(116,81,20,.15);border:1px solid rgba(226,177,56,.25);
+  z-index:5;animation:appear 1s ease;
+}
+h1{font-size:clamp(2.4rem,7vw,4.8rem);color:#c99100;margin:15px 0}
+h2{font-size:clamp(1.8rem,5vw,3rem);color:#b77b00;margin-bottom:18px}
+p{font-size:1.12rem;line-height:1.8}
+.subtitle{color:#866b3d}
+.flower-button{
+  margin-top:30px;border:0;background:none;cursor:pointer;font-size:6rem;
+  filter:drop-shadow(0 8px 12px rgba(190,140,0,.25));
+  animation:float 2.5s ease-in-out infinite;transition:.35s;
+}
+.flower-button:hover{transform:scale(1.13) rotate(4deg)}
+.btn{
+  margin-top:28px;padding:13px 25px;border:0;border-radius:999px;cursor:pointer;
+  background:#e5ad22;color:white;font-size:1rem;box-shadow:0 8px 20px rgba(184,132,17,.25);
+  transition:.3s
+}
+.btn:hover{transform:translateY(-3px);background:#cf970d}
+.bg-flower{position:absolute;opacity:.12;font-size:5rem;animation:drift 8s linear infinite}
+.f1{left:5%;top:12%}.f2{right:8%;top:25%;animation-delay:2s}.f3{left:12%;bottom:10%;animation-delay:4s}.f4{right:15%;bottom:12%;animation-delay:1s}
+.petal{position:fixed;top:-40px;pointer-events:none;z-index:20;animation:fall linear forwards}
+.photo{
+  width:min(340px,80vw);height:340px;object-fit:cover;border-radius:22px;
+  margin:25px auto;box-shadow:0 15px 40px rgba(80,50,0,.18);
+  background:#f5e7bd;display:flex;align-items:center;justify-content:center;
+}
+.photo img{width:100%;height:100%;object-fit:cover;border-radius:22px}
+.placeholder{font-family:Arial,sans-serif;color:#967d4b;padding:30px}
+.message{
+  margin:25px auto 0;max-width:560px;text-align:left;background:#fffdf7;
+  padding:25px;border-radius:20px;border-left:4px solid #e3ad21;box-shadow:0 8px 25px rgba(100,70,10,.08)
+}
+.line{opacity:0;transform:translateY(12px);animation:lineIn .8s forwards}
+.line:nth-child(2){animation-delay:.7s}.line:nth-child(3){animation-delay:1.4s}.line:nth-child(4){animation-delay:2.1s}
+.final{font-size:1.35rem;color:#9d6c00;font-weight:bold;margin-top:25px}
+@keyframes appear{from{opacity:0;transform:translateY(25px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes drift{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-20px) rotate(8deg)}}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg);opacity:0}}
+@keyframes lineIn{to{opacity:1;transform:none}}
+@media(max-width:600px){.card{padding:38px 20px}.photo{height:280px}p{font-size:1rem}}
+</style>
+</head>
+<body>
+
+<section id="inicio" class="screen">
+  <span class="bg-flower f1">🌻</span><span class="bg-flower f2">🌼</span>
+  <span class="bg-flower f3">🌻</span><span class="bg-flower f4">🌼</span>
+  <div class="card">
+    <div style="font-size:1.05rem;letter-spacing:2px">PARA TI</div>
+    <h1>Un pequeño detalle 🌻</h1>
+    <p class="subtitle">Hay algo que quiero enseñarte...</p>
+    <button class="flower-button" onclick="abrir()">🌻</button>
+    <p style="font-size:.9rem;color:#9b8251">Haz clic en la flor</p>
+  </div>
+</section>
+
+<section id="significado" class="screen hidden">
+  <div class="card">
+    <div style="font-size:4rem">🌻</div>
+    <h2>Flores amarillas</h2>
+    <p>
+      Espero que este pequeño detalle te guste se que no es mucho pero espero te haga sonreir
+      y que no olvides que te quiero mucho :3 
+    </p>
+    <p style="margin-top:14px">
+      Pero hoy quiero que estas flores tengan un significado todavía más especial:
+      <strong>recordarte que hay alguien que pensó en ti.</strong> 💛
+    </p>
+    <button class="btn" onclick="mostrar('recuerdo')">CLICK CLICK... 💌</button>
+  </div>
+</section>
+
+<section id="recuerdo" class="screen hidden">
+  <div class="card">
+    <h2>Una parte de mi detalle</h2>
+    <div class="photo">
+      <img src="foto.jpg" alt="Foto especial">
+    </div>
+    <div class="message">
+      <p class="line">A veces no hace falta una gran razón para querer tener un detalle con alguien.</p>
+      <p class="line">Simplemente quería regalarte un momento bonito.</p>
+      <p class="line">Y que cuando veas estas flores, recuerdes que alguien quiso sacarte una sonrisa. 💛</p>
+      <p class="final">las flores mas bellas para la persona mas bella. 🌻</p>
+    </div>
+    <button class="btn" onclick="mostrar('final')">algo mas ✨</button>
+  </div>
+</section>
+
+<section id="final" class="screen hidden">
+  <div class="card">
+    <div style="font-size:5rem;animation:float 2s infinite">🌻</div>
+    <h2>TARANNNN 💛</h2>
+    <p>
+      No importa cuántas flores existan en el mundo...
+      si solo tu haces relucir su bellaza.
+    </p>
+    <p style="margin-top:18px;font-size:1.3rem">
+      Espero que este pequeño detalle te haya hecho sonreír, de mucho aprecio Bryan el pelon.
+    </p>
+    <div style="font-size:2rem;margin-top:25px">🌻 ✨ 💛 ✨ 🌻</div>
+  </div>
+</section>
+
+<script>
+function petals(){
+  for(let i=0;i<24;i++){
+    const p=document.createElement('div');
+    p.className='petal';
+    p.textContent=['🌻','🌼','✨','💛'][Math.floor(Math.random()*4)];
+    p.style.left=Math.random()*100+'vw';
+    p.style.fontSize=(18+Math.random()*22)+'px';
+    p.style.animationDuration=(4+Math.random()*5)+'s';
+    p.style.animationDelay=(Math.random()*1.5)+'s';
+    document.body.appendChild(p);
+    setTimeout(()=>p.remove(),10000);
+  }
+}
+function abrir(){
+  document.getElementById('inicio').classList.add('hidden');
+  document.getElementById('significado').classList.remove('hidden');
+  petals();
+}
+function mostrar(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(id==='final') petals();
+}
+</script>
+</body>
+</html>
